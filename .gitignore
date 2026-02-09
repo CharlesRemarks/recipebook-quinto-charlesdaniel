@@ -1,0 +1,4 @@
+recipebook/db.sqlite3
+recipebook/.env
+*/**/*.pyc
+env/
