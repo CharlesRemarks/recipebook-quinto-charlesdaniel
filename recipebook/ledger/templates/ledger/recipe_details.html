@@ -1,7 +1,8 @@
-{% extends "ledger/index.html" %}
+{% extends "index.html" %}
 
 {% block content %}
     <h2>{{ object.name }}</h2>
+    <h3>by {{ object.author.name }}</h3>
     <ul>
         {% for ingredient in object.ingredients.all %}
             <li>{{ ingredient.ingredient.name }} - {{ ingredient.quantity }}</li>
