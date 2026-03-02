@@ -1,12 +1,22 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
+
+
+def biolength_validation(value):
+    if len(value) < 255:
+        raise ValidationError(
+            _("%(value)s is too short. Minimum length is 255 characters."),
+            params={"value": value},
+        )
 
 
 class Profile (models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
-    short_bio = models.TextField(blank=True, max_length=255)
+    short_bio = models.TextField(validators=[biolength_validation])
 
 
 class Ingredient(models.Model):

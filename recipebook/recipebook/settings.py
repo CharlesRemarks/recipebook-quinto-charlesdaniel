@@ -121,5 +121,5 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 LOGIN_REDIRECT_URL = '/recipes/list'
-LOGOUT_REDIRECT_URL = '/recipes/list'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
