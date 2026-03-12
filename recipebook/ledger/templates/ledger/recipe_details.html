@@ -3,7 +3,7 @@
 {% block content %}
 <h2>{{ object.name }}</h2>
 <h3>by {{ object.author.name }}</h3>
-{% for img in recipe.images.all %}
+{% for image in recipe.images.all %}
 <img src="{{ image.image.url }}" alt="{{ image.description }} image">
 {% endfor %}
 
@@ -12,5 +12,7 @@
     <li>{{ ingredient.ingredient.name }} - {{ ingredient.quantity }}</li>
     {% endfor %}
 </ul>
+
+<a href="{% url 'ledger:recipe-add-image' object.pk %}">Upload New Image</a>
 
 {% endblock %}
