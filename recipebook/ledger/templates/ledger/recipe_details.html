@@ -1,11 +1,16 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <h2>{{ object.name }}</h2>
-    <h3>by {{ object.author.name }}</h3>
-    <ul>
-        {% for ingredient in object.ingredients.all %}
-            <li>{{ ingredient.ingredient.name }} - {{ ingredient.quantity }}</li>
-        {% endfor %}
-    </ul>
+<h2>{{ object.name }}</h2>
+<h3>by {{ object.author.name }}</h3>
+{% for img in recipe.images.all %}
+<img src="{{ image.image.url }}" alt="{{ image.description }} image">
+{% endfor %}
+
+<ul>
+    {% for ingredient in object.ingredients.all %}
+    <li>{{ ingredient.ingredient.name }} - {{ ingredient.quantity }}</li>
+    {% endfor %}
+</ul>
+
 {% endblock %}
